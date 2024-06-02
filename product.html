@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJ's Product</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: transparent;
+            background-image: url('bg.png');
+            background-size: 2000px;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar {
+            padding: 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            color: black;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .navbar a:hover {
+            color: brown;
+        }
+        .navbar a.active {
+            color: brown;
+        }
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+            background-image: url('header-image.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #333;
+        }
+        .header h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+        .header p {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .content {
+            text-align: center;
+            padding: 20px;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+        }
+        .product {
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            width: 120px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+        .quantity {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+        .quantity button {
+            width: 25px;
+            height: 25px;
+            border: none;
+            background-color: #ddd;
+            cursor: pointer;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: auto;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 18px;
+            color: #555;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .modal-content p {
+            margin: 20px 0;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .checkout {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .checkout button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .checkout button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="contact.html">Contact</a>
+        <a href="#product" class="active">Product</a>
+    </div>
+    <div class="header">
+        <h1>MJ's Products</h1>
+    </div>
+    <div class="products">
+        <div class="product" data-price="50">
+            <img src="7.jpg" alt="Make-Up Sponge">
+            <p>Make-Up Sponge</p>
+            <p>₱ 50.00</p>
+            <div class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <span>0</span>
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </div>
+        </div>
+        <div class="product" data-price="350">
+            <img src="11.jpg" alt="Celeteque">
+            <p>Celeteque</p>
+            <p>₱ 350.00</p>
+            <div class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <span>0</span>
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </div>
+        </div>
+        <div class="product" data-price="400">
+            <img src="4.jpg" alt="Make-up Set">
+            <p>Make-up Set</p>
+            <p>₱ 400.00</p>
+            <div class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <span>0</span>
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </div>
+        </div>
+        <div class="product" data-price="55">
+            <img src="9.jpg" alt="Lipstick">
+            <p>Lipstick</p>
+            <p>₱ 55.00</p>
+            <div class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <span>0</span>
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </div>
+        </div>
+        <div class="product" data-price="10">
+            <img src="12.jpg" alt="Eyeliner">
+            <p>Eyeliner</p>
+            <p>₱ 10.00</p>
+            <div class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <span>0</span>
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </div>
+        </div>
+        <div class="product" data-price="200">
+            <img src="8.jpg" alt="Make-up Fixer">
+            <p>Make-up Fixer</p>
+            <p>₱ 200.00</p>
+            <div class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <span>0</span>
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </div>
+        </div>
+        <div class="product" data-price="150">
+            <img src="1.jpg" alt="Foundation">
+            <p>Foundation</p>
+            <p>₱ 150.00</p>
+            <div class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <span>0</span>
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </div>
+        </div>
+        <div class="product" data-price="55">
+            <img src="6.jpg" alt="Liptint">
+            <p>Liptint</p>
+            <p>₱ 55.00</p>
+            <div class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <span>0</span>
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </div>
+        </div>
+        <div class="product" data-price="105">
+            <img src="5.jpg" alt="Make-up Brush">
+            <p>Make-up Brush</p>
+            <p>₱ 105.00</p>
+            <div class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <span>0</span>
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </div>
+        </div>
+        <div class="product" data-price="35">
+            <img src="2.jpg" alt="Mascara">
+            <p>Mascara</p>
+            <p>₱ 35.00</p>
+            <div class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <span>0</span>
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </div>
+        </div>
+    </div>
+    <div class="checkout">
+        <p>Total: ₱ 0</p>
+        <button onclick="openModal()">Check Out</button>
+    </div>
+    <div class="footer">
+       
+    </div>
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="orderSummary"></p>
+            <p id="totalAmount"></p>
+            <button onclick="confirmOrder()">Confirm Order</button>
+        </div>
+    </div>
+
+    <script>
+        function updateQuantity(button, change) {
+            const quantitySpan = button.parentElement.querySelector('span');
+            let quantity = parseInt(quantitySpan.textContent);
+            quantity = Math.max(0, quantity + change);
+            quantitySpan.textContent = quantity;
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const products = document.querySelectorAll('.product');
+            let total = 0;
+            products.forEach(product => {
+                const quantity = parseInt(product.querySelector('.quantity span').textContent);
+                const price = parseInt(product.getAttribute('data-price'));
+                total += quantity * price;
+            });
+            document.querySelector('.footer p').textContent = `Total: ₱ ${total}`;
+        }
+
+        function openModal() {
+            const modal = document.getElementById('orderModal');
+            const orderSummary = document.getElementById('orderSummary');
+            const totalAmount = document.getElementById('totalAmount');
+            const products = document.querySelectorAll('.product');
+            let summary = '<strong>Order Summary:</strong><br>';
+            let total = 0;
+            products.forEach(product => {
+                const quantity = parseInt(product.querySelector('.quantity span').textContent);
+                if (quantity > 0) {
+                    const name = product.querySelector('p').textContent;
+                    const price = parseInt(product.getAttribute('data-price'));
+                    summary += `${name} - ₱${price} x ${quantity}<br>`;
+                    total += quantity * price;
+                }
+            });
+            orderSummary.innerHTML = summary;
+            totalAmount.textContent = `Total Amount: ₱ ${total}`;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        function confirmOrder() {
+            alert('Thank you for your order!');
+            closeModal();
+            resetQuantities();
+            updateTotal();
+        }
+
+        function resetQuantities() {
+            const quantities = document.querySelectorAll('.quantity span');
+            quantities.forEach(quantity => quantity.textContent = '0');
+        }
+    </script>
+</body>
+</html>

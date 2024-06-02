@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJ's Product</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: transparent;
+            background-image: url(bg.png);
+        }
+        .navbar {
+            padding: 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            color: black;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .navbar a:hover {
+            color: brown;
+        }
+        .navbar a.active {
+            color: brown;
+        }
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+            background-image: url('header-image.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #333;
+        }
+        .header h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+        .header p {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .content {
+            text-align: center;
+            padding: 20px;
+        }
+        .contact-info {
+            text-align: center;
+            margin: 50px 0;
+        }
+        .contact-info h2 {
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .contact-methods {
+            display: inline-block;
+            text-align: left;
+        }
+        .contact-methods div {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .contact-methods img {
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .makeup-brush {
+            margin-bottom: -60px;
+            position: absolute;
+            left: 10%;
+            bottom: 10%;
+            width: 250px;
+            height: auto;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="#contact" class="active">Contact</a>
+        <a href="product.html">Product</a>
+    </div>
+    <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p>For Orders and inquiries please pm or send us a message</p>
+        <div class="contact-methods">
+            <div>
+                <img src="Fblogo.png" alt="Facebook" width="24" height="24">
+                <span>Margie Duran</span>
+            </div>
+            <div>
+                <img src="instagram.png" alt="Instagram" width="24" height="24">
+                <span>scarlet_234</span>
+            </div>
+            <div>
+                <img src="telegram.png" alt="Telegram" width="24" height="24">
+                <span>SailorMoon</span>
+            </div>
+            <div>
+                <img src="whatsapp.png" alt="WhatsApp" width="24" height="24">
+                <span>0977-681-6453</span>
+            </div>
+            <div>
+                <img src="gmail.png" alt="Gmail" width="24" height="24">
+                <span>duranmargie2004@gmail.com</span>
+            </div>
+        </div>
+    </div>
+
+    <img src="3.jpg" class="makeup-brush">
+    <div class="footer">
+        <br>
+        <br>
+    </div>
+</body>
+</html>

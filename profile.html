@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJ's Product</title>
+    <style>
+       body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: transparent; 
+    background-image: url(bg.png);
+}
+.navbar {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+        .navbar a {
+            color: black;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .navbar a:hover {
+            color: brown;
+        }
+        .navbar a.active {
+            color: brown;
+        }
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+            background-image: url('header-image.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #333;
+        }
+        .header h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+        .header p {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .content {
+            text-align: center;
+            padding: 20px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;  
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#profile" class="active">Profile</a>
+        <a href="contact.html">Contact</a>
+        <a href="product.html">Product</a>
+       
+    </div>
+    <div class="header">
+        <h1>Profile</h1>
+        <p>Name: Duran Margie B.</p>
+        <p>Address: San Isidro, Cabuyao, Laguna</p>
+    </div>
+    <div class="content">
+        <img src="cutie.jpg" alt="Fashion Image" style="width: 200px; border: 5px solid brown; border-radius: 50%; overflow: hidden;">
+
+    </div>
+    <div class="footer">
+        <br>
+        <br>
+    </div>
+</body>
+</html>
